@@ -18,6 +18,8 @@ const firstName = process.argv[2];
 
 knex.select('*').from('famous_people')
   .where('first_name', '=', firstName)
+    // .returning('*') -- this returns everything, inlcuding the id
+    // below can also be .then
   .asCallback(function(err, rows) {
     if (err) return console.error(err);
         console.log(rows);
